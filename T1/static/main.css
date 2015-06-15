@@ -1,0 +1,43 @@
+.main-content {
+  margin-left: auto!important;
+  margin-right: auto!important;
+  margin-top: 80px!important;
+  width: 70%!important;
+}
+
+#map_view {
+  height: 460px;
+}
+
+#map_search {
+  height: 500px;
+}
+
+.ui.statistic {
+  margin-left: 0!important;
+  margin-bottom: 3px!important;
+}
+
+.ui.message .header:not(.ui) {
+  font-size: 1.5em!important;
+}
+
+.field p {
+  margin-bottom: 3px!important;
+}
+
+.main.menu.fixed {
+  z-index: 10000!important;
+}
+
+.paddingless {
+  padding: 0!important;
+}
+
+.marginless {
+  margin: 0!important;
+}
+
+#no_checkins_error {
+  margin-bottom: 10px;
+}

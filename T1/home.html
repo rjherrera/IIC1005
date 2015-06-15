@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RJHS Checkins</title>
+    <link href="static/main.css" type="text/css" rel="stylesheet"/>
+    <script src="static/jquery.min.js"></script> <!-- https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js -->
+    <script src="processed_data/random_500.js"></script>
+    <!-- SEMANTIC UI -->
+    <link href="static/semantic/semantic.min.css" type="text/css" rel="stylesheet"/>
+    <script src="static/semantic/semantic.min.js"></script>
+    <!-- LEAFLET -->
+    <link rel="stylesheet" href="static/leaflet/leaflet.css"/> <!-- https://unpkg.com/leaflet@1.0.3/dist/ -->
+    <script src="static/leaflet/leaflet.js"></script>
+    <!-- MARKERCLUSTER -->
+    <link rel="stylesheet" href="static/leaflet/MarkerCluster.css"> <!-- http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.css -->
+    <link rel="stylesheet" href="static/leaflet/MarkerCluster.Default.css"> <!-- http://leaflet.github.io/Leaflet.markercluster/dist/MarkerCluster.Default.css -->
+    <script src="static/leaflet/leaflet.markercluster-src.js"></script> <!-- http://leaflet.github.io/Leaflet.markercluster/dist/leaflet.markercluster-src.js -->
+    <!-- MONTHPICKER -->
+    <link href="static/jquery-ui/jquery-ui.css" rel="stylesheet" type="text/css"/> <!-- http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css -->
+    <script src="static/jquery-ui/jquery-ui.js" type="text/javascript"></script> <!-- http://code.jquery.com/ui/1.10.2/jquery-ui.js -->
+    <link href="static/monthpicker/MonthPicker.css" rel="stylesheet" type="text/css"/>
+    <script src="static/monthpicker/MonthPicker.min.js" type="text/javascript"></script>
+    <!-- POLYLINE DECORATOR -->
+    <script src="static/decorator/L.Symbol.js"></script>
+    <script src="static/decorator/L.PolylineDecorator.js"></script>
+    <script src="static/decorator/L.LineUtil.PolylineDecorator.js"></script>
+    <script src="static/decorator/L.RotatedMarker.js"></script>
+  </head>
+  <body>
+    <div class="ui fluid fixed one item main menu">
+      <div class="borderless icon item">
+        <i class="big teal world icon"></i>
+      </div>
+    </div>
+    <div class="main-content">
+      <h2 class="ui header">
+        <i class="world icon"></i>
+        <div class="content">
+          Check-ins
+          <div class="sub header">Vea los check-ins de una gran cantidad de usuarios. Busque amistades y las últimas visitas de usuarios específicos.</div>
+        </div>
+      </h2>
+      <div class="ui horizontal divider"></div>
+
+      <!-- TABS MENU -->
+      <div class="ui top attached tabular menu">
+        <a class="active item" data-tab="information">
+          Información
+        </a>
+        <a class="item" data-tab="search">
+          Búsqueda
+        </a>
+      </div>
+      <!-- END OF TABS MENU -->
+
+      <!-- TAB 1 CONTENT -->
+      <div class="ui bottom attached active tab segment" data-tab="information">
+        <h3 class="ui dividing header">
+          <div class="content">
+            Datos generales
+          </div>
+        </h3>
+
+        <div class="ui two column grid">
+          <div class="column">
+            <div class="ui teal attached icon message">
+              <i class="sort numeric ascending icon"></i>
+              <div class="content">
+                <div class="header">Cantidades</div>
+              </div>
+            </div>
+            <div class="ui attached segment">
+              <div class="ui small horizontal statistic">
+                <div class="value" id="users">11326~</div>
+                <div class="label">Usuarios</div>
+              </div>
+              <div class="ui small horizontal statistic">
+                <div class="value" id="locations">187218~</div>
+                <div class="label">Ubicaciones</div>
+              </div>
+              <div class="ui small horizontal statistic">
+                <div class="value" id="check_ins">2290997~</div>
+                <div class="label">Check-ins</div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui teal attached icon message">
+              <i class="area chart icon"></i>
+              <div class="content">
+                <div class="header">Promedios</div>
+              </div>
+            </div>
+            <div class="ui attached segment">
+              <div class="ui small horizontal statistic">
+                <div class="value" id="average_friends_per_user">8,3~</div>
+                <div class="label">Amigos por usuario</div>
+              </div>
+              <div class="ui small horizontal statistic">
+                <div class="value" id="average_check_ins_per_user">202,3~</div>
+                <div class="label">Check-ins por usuario</div>
+              </div>
+              <div class="ui small horizontal statistic">
+                <div class="value" id="average_check_ins_per_location">12,2~</div>
+                <div class="label">Check-ins por ubicación</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="ui dividing header">
+          <div class="content">
+            Check-ins
+            <div class="sub header">
+              Haga click en algun marcador para obtener una imagen tomada en las cercanias de la región (si está disponible).
+            </div>
+          </div>
+        </h3>
+        <div id="map_view"></div>
+      </div>
+      <!-- END OF TAB 1 CONTENT -->
+
+      <!-- TAB 2 CONTENT -->
+      <div class="ui bottom attached tab segment" data-tab="search">
+        <div class="ui stackable grid">
+            <div class="five wide column">
+              <form class="ui form" onsubmit="return false;">
+                <h3 class="ui dividing header">
+                  <div class="content">
+                    Mostrar usuario
+                  </div>
+                </h3>
+                <div class="one field">
+                  <div class="field">
+                    <div class="ui selection dropdown">
+                      <input type="hidden" name="user" id="id_user">
+                      <div class="default text">Usuario</div>
+                      <i class="dropdown icon"></i>
+                      <div class="menu">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui toggle checkbox">
+                      <input type="checkbox" name="friends" id="id_friends">
+                      <label>Mostrar amigos</label>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="ui toggle checkbox">
+                      <input type="checkbox" name="paths" id="id_paths">
+                      <label>Mostrar recorrido</label>
+                    </div>
+                  </div>
+                  <h4 class="header">
+                    <div class="content">
+                      Intervalo de fechas (opcional)
+                    </div>
+                  </h4>
+                  <div id="no_checkins_error" class="ui red label" style="display: none;"></div>
+                  <div class="field">
+                    <p>Desde:</p>
+                    <input id="from_month_picker" name="from_date" type="text"/>
+                    <div id="from_error" class="ui red pointing label" style="display: none;"></div>
+                  </div>
+                  <div class="field">
+                    <p>Hasta:&nbsp;</p>
+                    <input id="to_month_picker" name="to_date" type="text"/>
+                    <div id="to_error" class="ui red pointing label" style="display: none;"></div>
+                  </div>
+                  <div class="field">
+                    <button class="ui primary button">Buscar</button>
+                  </div>
+                </div>
+                <h5 class="ui header marginless">
+                  <div class="sub header">
+                    * Los check-ins del usuario buscado aparecerán en azul y si la opción mostrar amigos se encuentra activada, estos aparecerán en verde. Una flecha azul recorrerá el camino rojo realizado por el usuario si la opción mostrar recorrido se encuentra activada.
+                  </div>
+                </h5>
+              </form>
+            </div>
+            <div class="eleven wide column">
+              <div class="ui basic segment paddingless">
+                <div id="map_search"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <!-- END OF TAB 2 CONTENT -->
+
+      <div class="ui horizontal divider"></div>
+    </div>
+
+  </body>
+  <script src="static/main.js" type="text/javascript"></script>
+</html>
