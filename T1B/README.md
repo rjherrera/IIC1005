@@ -1,6 +1,8 @@
 T1B Crontab
 ===========
 
+[T1B.pdf](Enunciado Tarea 1B)
+
 [Archivo script.py](script.py)
 
 ### Configurando el cron
