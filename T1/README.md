@@ -1,7 +1,7 @@
 T1 - Checkins
 =============
 
-[T1.pdf](Enunciado Tarea 1)
+[Enunciado Tarea 1](T1.pdf)
 
 Sencilla aplicación web que provee información sobre checkins de foursquare. Despliega un muestreo de los checkins en un mapa interactivo en el cual se pueden ver imágenes de los lugares en cuestión, y permite ver, en otro mapa, las rutas recorridas por usuarios, además de marcar a sus amigos.
 

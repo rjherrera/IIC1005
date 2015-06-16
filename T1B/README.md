@@ -1,7 +1,7 @@
 T1B Crontab
 ===========
 
-[T1B.pdf](Enunciado Tarea 1B)
+[Enunciado Tarea 1B](T1B.pdf)
 
 [Archivo script.py](script.py)
 
