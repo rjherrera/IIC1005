@@ -1,0 +1,42 @@
+// Raimundo Herrera S.
+name: L = { aⁱbʲcᵏ | j = i − 2k }
+init: qi
+accept: qf
+
+qi,a,_
+qa,a,✗,>,>
+
+qa,a,_
+qa,a,✗,>,>
+
+// for each b, delete one a
+qa,b,_
+qb,b,_,-,<
+
+qb,b,✗
+qb,b,_,>,<
+
+qb,_,_
+qf,✓,_,-,-
+
+qb,c,✗
+qc,c,✗,-,-
+// end of b procedure
+
+// for each c, delete two a's
+qa,c,_
+qc,c,_,-,<
+
+qc,c,✗
+qc2,c,_,-,<
+
+qc2,c,✗
+qc,c,_,>,<
+
+qc,_,_
+qf,✓,_,-,-
+// end of c procedure
+
+// empty case (0=0-2*0)
+qi,_,_
+qf,✓,_,-,-
