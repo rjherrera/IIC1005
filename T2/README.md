@@ -5,9 +5,9 @@ T2 - SQL Mining
 
 Workflow Tarea 3
 -----------------
-#####OS: Mac OS X, Ubuntu 14.04
-#####Python: 3.4.1, 3.4.3
-#####Lib: Anaconda, MySQLclient
+##### OS: Mac OS X, Ubuntu 14.04
+##### Python: 3.4.1, 3.4.3
+##### Lib: Anaconda, MySQLclient
 
 
 #### Raimundo Herrera, Benjamín Assael
