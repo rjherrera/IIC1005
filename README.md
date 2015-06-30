@@ -8,10 +8,13 @@ Repositorio para el curso IIC1005 - Computación: Ciencia y Tecnología del Mund
 
 Se incluyen las tareas realizadas, junto a sus respectivos README.
 
-[Tarea 1](T1)
-[Tarea 1 - Chica](T1B)
-[Tarea 2](T2)
-[Tarea 2 - Chica](T2B)
+
+|Material|
+|:-:|
+|[Tarea 1](T1)|
+|[Tarea 1 - Chica](T1B)|
+|[Tarea 2](T2)|
+|[Tarea 2 - Chica](T2B)|
 
 
 
@@ -22,7 +25,9 @@ Repository for the course IIC1005 - Computer Science 101 (Pontificia Universidad
 
 All homeworks are included with their README.
 
-[Tarea 1](T1)
-[Tarea 1 - B](T1B)
-[Tarea 2](T2)
-[Tarea 2 - B](T2B)
+|Material|
+|:-:|
+|[Homework 1](T1)|
+|[Homework 1 - Extra](T1B)|
+|[Homework 2](T2)|
+|[Homework 2 - Extra](T2B)|
